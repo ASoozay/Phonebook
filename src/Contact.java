@@ -17,13 +17,31 @@ public class Contact {
         fullName = firstName + " " + lastName;
     }
 
+    public void setFirstName(String newFirstName){
+        firstName = newFirstName;
+        setFullName();
+    }
+
+
     public String getFirstName(){
         return firstName;
     }
 
 
+
+    public void setLastName(String newLastName){
+        lastName = newLastName;
+        setFullName();
+    }
+
+    
     public String getLastName(){
         return lastName;
+    }
+
+
+    public void setFullName(){
+        fullName = firstName + " " + lastName;
     }
 
 
@@ -32,8 +50,18 @@ public class Contact {
     }
 
 
+    public void setPhoneNumber(String newPhoneNumber){
+        phoneNumber = newPhoneNumber;
+    }
+
+
     public String getPhoneNumber(){
         return phoneNumber;
+    }
+
+
+    public void setEmail(String newEmail){
+        email = newEmail;
     }
 
 
@@ -42,14 +70,25 @@ public class Contact {
     }
 
 
+    public void setAddress(String newAddress){
+        address = newAddress;
+    }
+
+
     public String getAddress(){
         return address;
+    }
+
+
+    public void setCity(String newCity){
+        city = newCity;
     }
 
 
     public String getCity(){
         return city;
     }
+
 
     public String toString(){
         return String.format("Name:  %s%nPhone Number: %s%nEmail: %s%nAddress: %s%nCity: %s", fullName, phoneNumber, email, address, city);
