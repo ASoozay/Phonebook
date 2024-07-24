@@ -1,13 +1,29 @@
+// Andrew Soozay
+// 7/23/24
+// Phonebook
+// PhonebookList.java
+
+// PhonebookList.java is a manager for phonebooks, for adding, removing, and editing contacts
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 import java.util.*;
 
 public class PhonebookList {
     PhonebookNode head;
+    String phonebookName;
 
-    public PhonebookList(){
+    // method: PhonebookList (no return type)
+    // purpose: constructs the PhonebookList object
+    // parameters:  (1) phonebookName (String): name of the phonebook
+    public PhonebookList(String phonebookName){
         this.head = null;
+        this.phonebookName = phonebookName;
     }
 
     
+    // method: addContacts (void)
+    // purpose: adds a contact to the phonebook
+    // parameters:  (1) contact (Contact): the contact object to be added to the phonebook
     public void addContact(Contact contact){
         PhonebookNode newContact = new PhonebookNode(contact);
         if(head == null){
@@ -23,6 +39,9 @@ public class PhonebookList {
     }
 
 
+    // method: findContact (void)
+    // parameters: finds a specified contact in the phonebook and prints it
+    // parameters:  (1) name (String): full name of the contact to be found
     public void findContact(String name) throws IllegalAccessException {
         PhonebookNode current = head;
 
@@ -40,6 +59,9 @@ public class PhonebookList {
     }
 
 
+    // method: removeContact (void)
+    // purpose: removes a contact from the phonebook
+    // parameters:  (1) name (String): full name of the contact to be removed
     public void removeContact(String name){
         List<Contact> contactList = new ArrayList<>();
         PhonebookNode current = head;
@@ -74,6 +96,10 @@ public class PhonebookList {
     }
 
 
+    // method: editContact (void)
+    // purpose: allows the user to edit a contact's information. 
+    // parameters:  (1) name (String): full name of the contact to be edited
+    // NOTE: user can edit as many parts of the contact as they like until they exit
     public void editContact(String name) throws IllegalAccessException{
         findContact(name);
 
@@ -100,6 +126,11 @@ public class PhonebookList {
     }
 
 
+    // method: editAction (void)
+    // purpose: changes the contact info specified by the user
+    // parameters:  (1) choice (String): contact info being changed
+    //              (2) currentContact (Contact): contact that is being edited
+    //              (3) console (Scanner): scanner to take user input
     public void editAction(String choice, Contact currentContact, Scanner console){
         if(choice.equalsIgnoreCase("First Name")){
             System.out.print("Enter new first name: ");
@@ -135,13 +166,16 @@ public class PhonebookList {
     }
 
 
+    // method: printAll (void)
+    // purpose: prints all the contacts in the phonebook
+    // parameters: none
     public void printAll(){
         PhonebookNode current = head;
         for(int i = 0; i < 80; i++){
             System.out.print("-");
         }
         System.out.println();
-        System.out.println("PHONEBOOK");
+        System.out.println(phonebookName);
         System.out.println();
         while(current != null){
             Contact currentContact = current.getContact();
@@ -155,6 +189,9 @@ public class PhonebookList {
     }
 
 
+    // method: sortContacts (void)
+    // purpose: sorts the contacts in the phonebook alphabetically, by last name
+    // parameters: none
     public void sortContacts(){
         List<Contact> contactList = new ArrayList<>();
         PhonebookNode current = head;
@@ -188,6 +225,10 @@ public class PhonebookList {
     }
 
 
+    // method: switchPhoneBooks (void)
+    // purpose: switches a contact from one phonebook to another
+    // parameters:  (1) book1 (PhonebookList): phonebook that has the contact to be switched
+    //              (2) book2 (PhonebookList): phonebook that the contact will be switched to
     public void switchPhoneBooks(PhonebookList book1, PhonebookList book2){
         Scanner console = new Scanner(System.in);
         System.out.print("Who would you like to move?: ");
