@@ -7,6 +7,8 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
 
 public class PhonebookList {
     PhonebookNode head;
@@ -63,7 +65,7 @@ public class PhonebookList {
     // purpose: removes a contact from the phonebook
     // parameters:  (1) name (String): full name of the contact to be removed
     public void removeContact(String name){
-        List<Contact> contactList = new ArrayList<>();
+        ArrayList<Contact> contactList = new ArrayList<>();
         PhonebookNode current = head;
 
         while(current != null){
@@ -193,7 +195,7 @@ public class PhonebookList {
     // purpose: sorts the contacts in the phonebook alphabetically, by last name
     // parameters: none
     public void sortContacts(){
-        List<Contact> contactList = new ArrayList<>();
+        ArrayList<Contact> contactList = new ArrayList<>();
         PhonebookNode current = head;
 
         while(current != null){
@@ -247,4 +249,15 @@ public class PhonebookList {
         book2.addContact(book1Contact);
     }
 
+    public String getPhonebookName(){
+        return phonebookName;
+    }
+
+    public PhonebookNode getHead(){
+        return head;
+    }
+
+
 }
+
+

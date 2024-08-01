@@ -5,7 +5,8 @@
 
 // PhonebookTest.java provides a space for a user to test the abilities of Phonebook. Contacts and phonebooks are already provided, and some methods to test aspects are also provided
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 public class PhonebookTest {
@@ -21,6 +22,11 @@ public class PhonebookTest {
         cityOne.addContact(e1);
         cityOne.addContact(e2);
         cityOne.addContact(e3);
+        cityOne.addContact(e4);
+        cityOne.addContact(e5);
+        cityOne.addContact(e6);
+        PhonebookWindow window = new PhonebookWindow(cityOne);
+  
 
         PhonebookList cityTwo = new PhonebookList("CITY TWO PHONEBOOK");
         cityTwo.addContact(e4);
@@ -29,7 +35,7 @@ public class PhonebookTest {
 
 
         // prints out two phonebooks to compare
-        comparePhonebooks(cityOne, cityTwo);
+        comparePhonebooks(cityOne, cityTwo); 
 
         // test for editing a contact's information
         editedContactCheck(cityOne, "Entry One");
